@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 255, 255, 255;
+  --background-start: #0a0a0a;
+  --background-end: #0d0d1a;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(180deg, var(--background-start), var(--background-end));
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+@layer utilities {
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-cyan-400;
+  }
+  .glass {
+    @apply bg-white/5 backdrop-blur-sm border border-white/10;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
