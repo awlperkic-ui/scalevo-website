@@ -77,6 +77,10 @@ export default function Home() {
 
       {/* HERO */}
       <section className="pt-32 pb-24 px-6 relative overflow-hidden">
+        <div className="absolute inset-0">
+          <img src="/images/hero.jpg" alt="" className="w-full h-full object-cover opacity-40" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a]/60 via-[#0a0a0a]/40 to-[#0a0a0a]" />
+        </div>
         <div className="absolute inset-0 hero-mesh" />
         {/* Floating particle dots */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -227,12 +231,12 @@ export default function Home() {
           </div>
           <div className="grid md:grid-cols-3 gap-6">
             {[
-              { icon: '🎬', title: 'Corporate Videos', desc: 'Professional brand videos for your website, LinkedIn, and trade shows. 30–120 seconds, 4K, full post-production included.' },
-              { icon: '📱', title: 'Social Media Reels', desc: 'Optimized for Instagram, TikTok, and YouTube Shorts. Trending formats with high engagement rates built in.' },
-              { icon: '⚙️', title: 'Marketing Automation', desc: 'Automated content pipelines, scheduled distribution, and AI-driven campaigns for sustainable growth.' },
+              { icon: '/images/icon-starter.png', title: 'Corporate Videos', desc: 'Professional brand videos for your website, LinkedIn, and trade shows. 30–120 seconds, 4K, full post-production included.' },
+              { icon: '/images/icon-professional.png', title: 'Social Media Reels', desc: 'Optimized for Instagram, TikTok, and YouTube Shorts. Trending formats with high engagement rates built in.' },
+              { icon: '/images/icon-premium.png', title: 'Marketing Automation', desc: 'Automated content pipelines, scheduled distribution, and AI-driven campaigns for sustainable growth.' },
             ].map((service) => (
               <div key={service.title} className="p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-blue-500/30 transition-all">
-                <div className="text-4xl mb-4">{service.icon}</div>
+                <div className="mb-4"><img src={service.icon} alt={service.title} className="w-12 h-12 object-contain" /></div>
                 <h3 className="text-xl font-bold mb-3">{service.title}</h3>
                 <p className="text-gray-400 text-sm leading-relaxed">{service.desc}</p>
               </div>
