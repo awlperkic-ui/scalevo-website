@@ -26,3 +26,73 @@ body {
 html {
   scroll-behavior: smooth;
 }
+
+/* Hero animated mesh gradient */
+@keyframes hero-gradient {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  25% {
+    background-position: 100% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  75% {
+    background-position: 0% 100%;
+  }
+}
+
+.hero-mesh {
+  background: linear-gradient(
+    -45deg,
+    rgba(59, 130, 246, 0.15),
+    rgba(6, 182, 212, 0.1),
+    rgba(59, 130, 246, 0.05),
+    rgba(139, 92, 246, 0.1),
+    rgba(6, 182, 212, 0.15)
+  );
+  background-size: 400% 400%;
+  animation: hero-gradient 15s ease infinite;
+}
+
+/* Floating particles effect for hero */
+@keyframes float-up {
+  0% {
+    transform: translateY(100vh) scale(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.6;
+  }
+  90% {
+    opacity: 0.3;
+  }
+  100% {
+    transform: translateY(-20vh) scale(1);
+    opacity: 0;
+  }
+}
+
+.particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: rgba(59, 130, 246, 0.4);
+  border-radius: 50%;
+  animation: float-up linear infinite;
+}
+
+/* Showreel placeholder animation */
+@keyframes pulse-border {
+  0%, 100% {
+    border-color: rgba(59, 130, 246, 0.3);
+  }
+  50% {
+    border-color: rgba(59, 130, 246, 0.6);
+  }
+}
+
+.showreel-placeholder {
+  animation: pulse-border 3s ease-in-out infinite;
+}

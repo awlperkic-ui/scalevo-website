@@ -2,15 +2,15 @@ import type { Metadata } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'Scalevo — AI Marketing Studio',
-  description: 'Professionelle Videos & Marketing-Automation für KMU. Corporate Videos ab 500 EUR. Powered by AI.',
-  keywords: 'AI Marketing, KI Agentur, Corporate Video, Marketing Automation, KMU, Deutschland',
+  title: 'Scalevo — AI Video Marketing Agency',
+  description: 'Professional marketing videos produced with AI. Corporate videos starting at $500. 10x faster, 90% less cost than traditional production.',
+  keywords: 'AI video production, marketing agency, corporate video, social media video, AI marketing, video production Florida, small business marketing',
   openGraph: {
-    title: 'Scalevo — AI Marketing Studio',
-    description: 'Professionelle Videos & Marketing-Automation für KMU.',
+    title: 'Scalevo — AI Video Marketing Agency',
+    description: 'Professional marketing videos produced with AI. 10x faster. 90% less cost.',
     url: 'https://scalevo.agency',
     siteName: 'Scalevo',
-    locale: 'de_DE',
+    locale: 'en_US',
     type: 'website',
   },
 }
@@ -21,7 +21,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="de">
+    <html lang="en">
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
