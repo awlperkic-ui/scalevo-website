@@ -142,6 +142,7 @@ export default function Home() {
   })
 
   const portfolioBgs = ["#1A1A2E", "#16213E", "#0F3460"]
+  const portfolioImages = ["/images/portfolio-missionrt.jpg", "/images/portfolio-cloudsync-new.jpg", ""]
 
   return (
     <main className="min-h-screen" style={{
@@ -160,7 +161,10 @@ export default function Home() {
         borderBottom: "1px solid #E8E8E8"
       }}>
         <div className="max-w-[1120px] mx-auto px-8 h-[60px] flex items-center justify-between">
-          <span className="text-lg font-bold" style={{ letterSpacing: "-0.04em" }}>Scale Evo</span>
+          <div className="flex items-center gap-2">
+            <img src="/images/logo.png" alt="Scale Evo" width={28} height={28} style={{ borderRadius: 4 }} />
+            <span className="text-lg font-bold" style={{ letterSpacing: "-0.04em" }}>Scale Evo</span>
+          </div>
           <div className="flex items-center gap-7">
             {d.nav.map((n, i) => (
               <a key={i} href={`#s${i}`} className="text-sm font-medium hidden md:block transition-colors"
@@ -178,20 +182,30 @@ export default function Home() {
       </nav>
 
       {/* HERO */}
-      <section className="pt-40 pb-28 px-8 max-w-[1120px] mx-auto">
-        <p className="text-sm font-medium uppercase mb-5" style={{ color: "#888", letterSpacing: "0.04em" }}>{d.hero.pre}</p>
-        <h1 className="font-bold mb-6" style={{
-          fontSize: "clamp(40px, 6vw, 68px)", lineHeight: 1.05,
-          letterSpacing: "-0.04em", maxWidth: 700
-        }}>
-          {d.hero.h1_1}<br />{d.hero.h1_2}
-        </h1>
-        <p className="text-lg mb-9" style={{ color: "#555", lineHeight: 1.65, maxWidth: 520 }}>{d.hero.sub}</p>
-        <div className="flex gap-3">
-          <a href="#s0" className="inline-block px-7 py-3.5 rounded-md text-sm font-semibold transition-colors"
-            style={{ background: "#111", color: "#fff", letterSpacing: "-0.01em" }}>{d.hero.cta}</a>
-          <a href="#s4" className="inline-block px-7 py-3.5 rounded-md text-sm font-semibold transition-all"
-            style={{ background: "transparent", color: "#111", border: "1.5px solid #DDD", letterSpacing: "-0.01em" }}>{d.hero.cta2}</a>
+      <section className="relative pt-40 pb-28 px-8 max-w-[1120px] mx-auto">
+        <div className="flex flex-col lg:flex-row items-center gap-12">
+          <div className="flex-1">
+            <p className="text-sm font-medium uppercase mb-5" style={{ color: "#888", letterSpacing: "0.04em" }}>{d.hero.pre}</p>
+            <h1 className="font-bold mb-6" style={{
+              fontSize: "clamp(40px, 6vw, 68px)", lineHeight: 1.05,
+              letterSpacing: "-0.04em", maxWidth: 700
+            }}>
+              {d.hero.h1_1}<br />{d.hero.h1_2}
+            </h1>
+            <p className="text-lg mb-9" style={{ color: "#555", lineHeight: 1.65, maxWidth: 520 }}>{d.hero.sub}</p>
+            <div className="flex gap-3">
+              <a href="#s0" className="inline-block px-7 py-3.5 rounded-md text-sm font-semibold transition-colors"
+                style={{ background: "#111", color: "#fff", letterSpacing: "-0.01em" }}>{d.hero.cta}</a>
+              <a href="#s4" className="inline-block px-7 py-3.5 rounded-md text-sm font-semibold transition-all"
+                style={{ background: "transparent", color: "#111", border: "1.5px solid #DDD", letterSpacing: "-0.01em" }}>{d.hero.cta2}</a>
+            </div>
+          </div>
+          <div className="flex-1 hidden lg:block">
+            <div className="rounded-xl overflow-hidden" style={{ boxShadow: "0 20px 60px rgba(0,0,0,0.12)" }}>
+              <img src="/images/hero.jpg" alt="Cinematic video production" width={640} height={470}
+                style={{ width: "100%", height: "auto", display: "block" }} />
+            </div>
+          </div>
         </div>
       </section>
 
@@ -204,8 +218,11 @@ export default function Home() {
                 background: portfolioBgs[i], aspectRatio: "16/9",
                 display: "flex", flexDirection: "column", justifyContent: "flex-end", position: "relative"
               }}>
-              {/* Portfolio thumbnail placeholder — will be replaced with generated images */}
-              <div className="p-6" style={{ background: "linear-gradient(transparent, rgba(0,0,0,0.7))" }}>
+              {portfolioImages[i] && (
+                <img src={portfolioImages[i]} alt={item.label}
+                  style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }} />
+              )}
+              <div className="p-6 relative z-10" style={{ background: "linear-gradient(transparent, rgba(0,0,0,0.7))" }}>
                 <p className="text-lg font-semibold text-white mb-1">{item.label}</p>
                 <p className="text-sm" style={{ color: "rgba(255,255,255,0.6)" }}>{item.cat}</p>
               </div>
@@ -298,6 +315,7 @@ export default function Home() {
       <footer style={{ borderTop: "1px solid #E8E8E8", padding: "40px 32px" }}>
         <div className="max-w-[1120px] mx-auto flex flex-wrap justify-between items-center gap-4">
           <div>
+            <img src="/images/logo.png" alt="Scale Evo" width={20} height={20} style={{ borderRadius: 3, display: "inline-block", verticalAlign: "middle", marginRight: 6 }} />
             <span className="text-sm font-bold" style={{ letterSpacing: "-0.03em" }}>Scale Evo</span>
             <span className="text-sm ml-3" style={{ color: "#999" }}>{d.footer.tag}</span>
           </div>
