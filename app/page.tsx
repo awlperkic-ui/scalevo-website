@@ -150,10 +150,7 @@ export default function Home() {
       background: "#FAFAFA", color: "#111",
       WebkitFontSmoothing: "antialiased"
     }}>
-      <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap');
-        ::selection { background: #111; color: #fff; }
-      `}</style>
+      <style>{`::selection { background: #111; color: #fff; }`}</style>
 
       {/* NAV */}
       <nav className="fixed top-0 left-0 right-0 z-50" style={{
