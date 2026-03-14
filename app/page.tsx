@@ -258,14 +258,21 @@ export default function Home() {
             <p className="text-lg text-slate-500">{t.portfolio.subtitle}</p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {["SaaS — LinkedIn Video", "Consulting — Erklärvideo", "E-Commerce — Instagram Reel"].map((title, i) => (
-              <div key={i} className="bg-white/[0.02] border border-white/[0.06] rounded-2xl overflow-hidden hover:shadow-[0_0_40px_rgba(59,130,246,0.15)] hover:border-blue-500/30 transition-all">
-                <div className="h-[200px] flex items-center justify-center" style={{ background: `linear-gradient(135deg, rgba(59,130,246,${0.08 + i * 0.04}), rgba(5,10,20,1))` }}>
-                  <div className="w-16 h-16 rounded-full border-2 border-white/20 flex items-center justify-center text-2xl text-blue-500 cursor-pointer bg-black/30 hover:bg-black/50 transition-colors">▶</div>
+            {[
+              { title: "CloudSync Pro", sub: "SaaS · LinkedIn", dur: "48 Sek.", img: "/images/portfolio-cloudsync.jpg" },
+              { title: "StrategyPeak Consulting", sub: "Beratung · LinkedIn", dur: "48 Sek.", img: "/images/portfolio-strategypeak.jpg" },
+              { title: "PräzisionsTech GmbH", sub: "Industrie · Instagram Reel", dur: "30 Sek.", img: "/images/portfolio-praezisionstech.jpg" }
+            ].map((item, i) => (
+              <div key={i} className="bg-white/[0.02] border border-white/[0.06] rounded-2xl overflow-hidden hover:shadow-[0_0_40px_rgba(59,130,246,0.15)] hover:border-blue-500/30 transition-all group">
+                <div className="h-[200px] relative overflow-hidden">
+                  <img src={item.img} alt={item.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                  <div className="absolute inset-0 bg-black/30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                    <div className="w-16 h-16 rounded-full border-2 border-white/40 flex items-center justify-center text-2xl text-white cursor-pointer bg-black/40">▶</div>
+                  </div>
                 </div>
                 <div className="p-6">
-                  <h3 className="text-[17px] font-semibold mb-1">{title}</h3>
-                  <p className="text-[13px] text-slate-500">60 Sek. · Deutsch · 2026</p>
+                  <h3 className="text-[17px] font-semibold mb-1">{item.title}</h3>
+                  <p className="text-[13px] text-slate-500">{item.sub} · {item.dur} · 2026</p>
                 </div>
               </div>
             ))}
