@@ -3,120 +3,116 @@
 import { useState, useEffect } from "react"
 
 const translations = {
-  de: {
-    nav: { services: "Leistungen", process: "Prozess", portfolio: "Portfolio", pricing: "Preise", contact: "Kontakt" },
+  en: {
+    nav: ["Work", "Services", "Process", "Pricing", "Contact"],
     hero: {
-      badge: "KI-AUTOMATISIERTE VIDEOPRODUKTION",
-      title1: "Marketing-Videos",
-      title2: "in Tagen,",
-      title3: "nicht Wochen.",
-      subtitle: "Scale Evo übernimmt Ihre komplette Marketing-Video-Produktion. Vollständig KI-automatisiert. Agentur-Qualität. Ab 299€ pro Video.",
-      cta: "Kostenloses Sample-Video anfordern",
-      ctaSub: "Kein Risiko. Kein Vertrag. Einfach überzeugen lassen."
+      pre: "Video production, reimagined.",
+      h1_1: "Your marketing team",
+      h1_2: "just got faster.",
+      sub: "Scale Evo produces professional marketing videos using AI — delivered in 48 hours, not 4 weeks. Built for companies that move fast.",
+      cta: "See our work",
+      cta2: "Get a free sample"
     },
     services: {
-      title: "Was wir liefern",
-      subtitle: "Professionelle Marketing-Videos für jede Plattform",
+      title: "What we build",
       items: [
-        { icon: "▶", title: "LinkedIn Videos", desc: "60-90 Sekunden Videos die im Feed stoppen. Optimiert für B2B-Entscheider. Hook → Story → CTA.", time: "48h Lieferzeit" },
-        { icon: "◉", title: "Instagram Reels", desc: "Vertikale 9:16 Videos mit schnellen Schnitten und Untertiteln. Algorithmus-optimiert für maximale Reichweite.", time: "24h Lieferzeit" },
-        { icon: "▣", title: "Erklärvideos", desc: "Komplexe Produkte einfach erklärt. Storytelling-Framework, professionelle Voice-Over, Motion Graphics.", time: "72h Lieferzeit" },
-        { icon: "◆", title: "B2B Ads", desc: "Performance-orientierte Video-Ads für LinkedIn, YouTube und Meta. A/B-Test-fähige Varianten inklusive.", time: "48h Lieferzeit" }
+        { title: "Brand Films", desc: "Cinematic company videos that tell your story. The kind that makes people stop scrolling.", time: "72h" },
+        { title: "LinkedIn Videos", desc: "60-second videos engineered for the B2B feed. Hook, story, call to action.", time: "48h" },
+        { title: "Product Explainers", desc: "Complex products, explained simply. Professional voiceover, motion graphics, clear narrative.", time: "72h" },
+        { title: "Social Ads", desc: "Performance video ads for LinkedIn, YouTube, and Meta. Multiple variants for A/B testing.", time: "48h" }
+      ]
+    },
+    process: {
+      title: "How it works",
+      steps: [
+        { n: "01", t: "Brief", d: "Tell us about your company, audience, and goals. Takes 5 minutes." },
+        { n: "02", t: "Production", d: "Our AI system handles research, scripting, visuals, voiceover, and editing. Autonomously." },
+        { n: "03", t: "Review", d: "Every video passes a 100-point quality check before you see it." },
+        { n: "04", t: "Delivery", d: "Finished video in your inbox. Platform-optimized, subtitled, ready to post." }
+      ]
+    },
+    portfolio: {
+      items: [
+        { label: "MissionRT", cat: "Brand Film · 60s" },
+        { label: "CloudSync Pro", cat: "LinkedIn Video · 45s" },
+        { label: "Your Company", cat: "Get a free sample →" }
+      ]
+    },
+    pricing: {
+      title: "Pricing",
+      sub: "Straightforward. No hidden fees.",
+      plans: [
+        { name: "Single", price: "299", per: "per video", feat: ["1 video up to 60s", "1 platform format", "Professional voiceover", "Subtitles included", "1 revision round", "48h delivery"], cta: "Order a video", pop: false },
+        { name: "Growth", price: "799", per: "per month", feat: ["3 videos / month", "All platform formats", "Professional voiceover", "Subtitles + thumbnails", "2 revision rounds", "Dedicated contact"], cta: "Get started", pop: true },
+        { name: "Scale", price: "1,899", per: "per month", feat: ["8 videos / month", "All platform formats", "Premium voiceover", "Full brand kit", "Unlimited revisions", "24h priority delivery"], cta: "Contact us", pop: false }
+      ]
+    },
+    cta: {
+      title: "See what we can do for you.",
+      sub: "We'll produce a free sample video for your company. No contract, no risk — just a video you can actually use.",
+      btn: "Request free sample",
+      email: "hello@scalevo.agency"
+    },
+    footer: {
+      tag: "AI-powered video production.",
+      copy: "© 2026 Scale Evo LLC",
+      links: ["Privacy", "Terms", "Imprint"]
+    }
+  },
+  de: {
+    nav: ["Arbeiten", "Leistungen", "Prozess", "Preise", "Kontakt"],
+    hero: {
+      pre: "Videoproduktion, neu gedacht.",
+      h1_1: "Ihr Marketing-Team",
+      h1_2: "wurde schneller.",
+      sub: "Scale Evo produziert professionelle Marketing-Videos mit KI — geliefert in 48 Stunden, nicht 4 Wochen. Für Unternehmen die schnell handeln.",
+      cta: "Arbeiten ansehen",
+      cta2: "Kostenloses Sample"
+    },
+    services: {
+      title: "Was wir bauen",
+      items: [
+        { title: "Brand Films", desc: "Cinematische Unternehmensvideos die Ihre Geschichte erzählen. Die Art, bei der man aufhört zu scrollen.", time: "72h" },
+        { title: "LinkedIn Videos", desc: "60-Sekunden-Videos für den B2B-Feed. Hook, Story, Call to Action.", time: "48h" },
+        { title: "Erklärvideos", desc: "Komplexe Produkte, einfach erklärt. Professionelles Voiceover, Motion Graphics.", time: "72h" },
+        { title: "Social Ads", desc: "Performance Video-Ads für LinkedIn, YouTube und Meta. Mehrere Varianten für A/B-Tests.", time: "48h" }
       ]
     },
     process: {
       title: "So funktioniert es",
-      subtitle: "Vom Briefing zum fertigen Video — vollautomatisch",
       steps: [
-        { num: "01", title: "Briefing", desc: "Sie sagen uns was Sie brauchen. Branche, Zielgruppe, Plattform, Botschaft. 5 Minuten." },
-        { num: "02", title: "Produktion", desc: "Unser KI-System recherchiert, schreibt, designt, spricht und schneidet. Autonom. Parallel. Schnell." },
-        { num: "03", title: "Qualitätssicherung", desc: "100-Punkte QA-Check. Kreativität, technische Qualität, Brand-Konsistenz, Anti-AI-Artefakte." },
-        { num: "04", title: "Lieferung", desc: "Fertiges Video in Ihrem Posteingang. Plattform-optimiert. Inkl. Untertitel und Thumbnail." }
+        { n: "01", t: "Briefing", d: "Erzählen Sie uns von Ihrem Unternehmen, Ihrer Zielgruppe und Ihren Zielen. Dauert 5 Minuten." },
+        { n: "02", t: "Produktion", d: "Unser KI-System übernimmt Recherche, Script, Visuals, Voiceover und Schnitt. Autonom." },
+        { n: "03", t: "Prüfung", d: "Jedes Video besteht einen 100-Punkte-Qualitätscheck bevor Sie es sehen." },
+        { n: "04", t: "Lieferung", d: "Fertiges Video in Ihrem Posteingang. Plattform-optimiert, untertitelt, bereit zum Posten." }
       ]
     },
     portfolio: {
-      title: "Portfolio",
-      subtitle: "Echte Videos. Echte Ergebnisse.",
-      cta: "Ihr Video könnte hier sein →"
-    },
-    pricing: {
-      title: "Transparente Preise",
-      subtitle: "Keine versteckten Kosten. Keine Überraschungen.",
-      plans: [
-        { name: "Starter", price: "299", period: "/Video", features: ["1 Video (bis 60 Sek.)", "1 Plattform-Format", "Professionelle Voice-Over", "Untertitel inklusive", "1 Revisionsrunde", "48h Lieferzeit"], cta: "Video bestellen", highlighted: false },
-        { name: "Growth", price: "799", period: "/Monat", features: ["3 Videos pro Monat", "Alle Plattform-Formate", "Professionelle Voice-Over", "Untertitel + Thumbnails", "2 Revisionsrunden", "Dedizierter Ansprechpartner"], cta: "Jetzt starten", highlighted: true },
-        { name: "Scale", price: "1.899", period: "/Monat", features: ["8 Videos pro Monat", "Alle Plattform-Formate", "Premium Voice-Over", "Komplettes Brand Kit", "Unbegrenzte Revisionen", "Priority 24h Lieferzeit"], cta: "Kontakt aufnehmen", highlighted: false }
-      ]
-    },
-    cta: {
-      title: "Bereit für Ihr erstes Video?",
-      subtitle: "Wir produzieren ein kostenloses Sample-Video für Ihr Unternehmen. Kein Risiko, kein Vertrag.",
-      button: "Kostenloses Sample anfordern",
-      email: "hello@scalevo.agency"
-    },
-    footer: {
-      company: "Scale Evo",
-      tagline: "KI-automatisierte Marketing-Videoproduktion aus Stuttgart.",
-      links: ["Impressum", "Datenschutz", "AGB"],
-      copyright: "© 2026 Scale Evo LLC. Alle Rechte vorbehalten."
-    }
-  },
-  en: {
-    nav: { services: "Services", process: "Process", portfolio: "Portfolio", pricing: "Pricing", contact: "Contact" },
-    hero: {
-      badge: "AI-AUTOMATED VIDEO PRODUCTION",
-      title1: "Marketing Videos",
-      title2: "in Days,",
-      title3: "Not Weeks.",
-      subtitle: "Scale Evo handles your entire marketing video production. Fully AI-automated. Agency quality. Starting at €299 per video.",
-      cta: "Request a Free Sample Video",
-      ctaSub: "No risk. No contract. Just results."
-    },
-    services: {
-      title: "What We Deliver",
-      subtitle: "Professional marketing videos for every platform",
       items: [
-        { icon: "▶", title: "LinkedIn Videos", desc: "60-90 second videos that stop the scroll. Optimized for B2B decision-makers. Hook → Story → CTA.", time: "48h delivery" },
-        { icon: "◉", title: "Instagram Reels", desc: "Vertical 9:16 videos with fast cuts and subtitles. Algorithm-optimized for maximum reach.", time: "24h delivery" },
-        { icon: "▣", title: "Explainer Videos", desc: "Complex products explained simply. Storytelling framework, professional voice-over, motion graphics.", time: "72h delivery" },
-        { icon: "◆", title: "B2B Ads", desc: "Performance-driven video ads for LinkedIn, YouTube, and Meta. A/B testable variants included.", time: "48h delivery" }
+        { label: "MissionRT", cat: "Brand Film · 60s" },
+        { label: "CloudSync Pro", cat: "LinkedIn Video · 45s" },
+        { label: "Ihr Unternehmen", cat: "Kostenloses Sample →" }
       ]
-    },
-    process: {
-      title: "How It Works",
-      subtitle: "From briefing to finished video — fully automated",
-      steps: [
-        { num: "01", title: "Briefing", desc: "Tell us what you need. Industry, audience, platform, message. 5 minutes." },
-        { num: "02", title: "Production", desc: "Our AI system researches, writes, designs, voices, and edits. Autonomous. Parallel. Fast." },
-        { num: "03", title: "Quality Assurance", desc: "100-point QA check. Creativity, technical quality, brand consistency, anti-AI artifacts." },
-        { num: "04", title: "Delivery", desc: "Finished video in your inbox. Platform-optimized. Subtitles and thumbnail included." }
-      ]
-    },
-    portfolio: {
-      title: "Portfolio",
-      subtitle: "Real videos. Real results.",
-      cta: "Your video could be here →"
     },
     pricing: {
-      title: "Transparent Pricing",
-      subtitle: "No hidden costs. No surprises.",
+      title: "Preise",
+      sub: "Transparent. Keine versteckten Kosten.",
       plans: [
-        { name: "Starter", price: "299", period: "/Video", features: ["1 Video (up to 60 sec)", "1 Platform Format", "Professional Voice-Over", "Subtitles Included", "1 Revision Round", "48h Delivery"], cta: "Order Video", highlighted: false },
-        { name: "Growth", price: "799", period: "/Month", features: ["3 Videos per Month", "All Platform Formats", "Professional Voice-Over", "Subtitles + Thumbnails", "2 Revision Rounds", "Dedicated Contact"], cta: "Get Started", highlighted: true },
-        { name: "Scale", price: "1,899", period: "/Month", features: ["8 Videos per Month", "All Platform Formats", "Premium Voice-Over", "Complete Brand Kit", "Unlimited Revisions", "Priority 24h Delivery"], cta: "Contact Us", highlighted: false }
+        { name: "Single", price: "299", per: "pro Video", feat: ["1 Video bis 60s", "1 Plattform-Format", "Professionelles Voiceover", "Untertitel inklusive", "1 Revisionsrunde", "48h Lieferzeit"], cta: "Video bestellen", pop: false },
+        { name: "Growth", price: "799", per: "pro Monat", feat: ["3 Videos / Monat", "Alle Plattform-Formate", "Professionelles Voiceover", "Untertitel + Thumbnails", "2 Revisionsrunden", "Fester Ansprechpartner"], cta: "Jetzt starten", pop: true },
+        { name: "Scale", price: "1.899", per: "pro Monat", feat: ["8 Videos / Monat", "Alle Plattform-Formate", "Premium Voiceover", "Komplettes Brand Kit", "Unbegrenzte Revisionen", "24h Priority-Lieferung"], cta: "Kontakt aufnehmen", pop: false }
       ]
     },
     cta: {
-      title: "Ready for Your First Video?",
-      subtitle: "We'll produce a free sample video for your company. No risk, no contract.",
-      button: "Request Free Sample",
+      title: "Sehen Sie, was wir für Sie tun können.",
+      sub: "Wir produzieren ein kostenloses Sample-Video für Ihr Unternehmen. Kein Vertrag, kein Risiko — einfach ein Video das Sie nutzen können.",
+      btn: "Kostenloses Sample anfordern",
       email: "hello@scalevo.agency"
     },
     footer: {
-      company: "Scale Evo",
-      tagline: "AI-automated marketing video production from Stuttgart.",
-      links: ["Legal Notice", "Privacy Policy", "Terms"],
-      copyright: "© 2026 Scale Evo LLC. All rights reserved."
+      tag: "KI-gestützte Videoproduktion.",
+      copy: "© 2026 Scale Evo LLC",
+      links: ["Datenschutz", "AGB", "Impressum"]
     }
   }
 } as const
@@ -124,235 +120,193 @@ const translations = {
 type Lang = keyof typeof translations
 
 export default function Home() {
-  const [lang, setLang] = useState<Lang>("de")
-  const [visibleSections, setVisibleSections] = useState<Set<string>>(new Set())
-  const t = translations[lang]
+  const [lang, setLang] = useState<Lang>("en")
+  const [vis, setVis] = useState<Set<string>>(new Set())
+  const d = translations[lang]
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setVisibleSections((prev) => { const next = new Set(Array.from(prev)); next.add(entry.target.id); return next })
-          }
-        })
-      },
-      { threshold: 0.15 }
+    const obs = new IntersectionObserver(
+      (entries) => entries.forEach(e => {
+        if (e.isIntersecting) setVis(p => { const n = new Set(Array.from(p)); n.add(e.target.id); return n })
+      }), { threshold: 0.1 }
     )
-    document.querySelectorAll("[data-animate]").forEach((el) => observer.observe(el))
-    return () => observer.disconnect()
+    document.querySelectorAll("[data-a]").forEach(el => obs.observe(el))
+    return () => obs.disconnect()
   }, [lang])
 
-  const isVisible = (id: string) => visibleSections.has(id)
-
-  const sectionStyle = (id: string, delay = 0) => ({
-    opacity: isVisible(id) ? 1 : 0,
-    transform: isVisible(id) ? "translateY(0)" : "translateY(40px)",
-    transition: `opacity 0.8s ease ${delay}s, transform 0.8s ease ${delay}s`
+  const show = (id: string) => vis.has(id)
+  const anim = (id: string, del = 0) => ({
+    opacity: show(id) ? 1 : 0,
+    transform: show(id) ? "none" : "translateY(24px)",
+    transition: `opacity 0.7s ease ${del}s, transform 0.7s ease ${del}s`
   })
 
+  const portfolioBgs = ["#1A1A2E", "#16213E", "#0F3460"]
+
   return (
-    <main className="min-h-screen bg-[#050a14] text-[#e2e8f0] overflow-x-hidden" style={{ fontFamily: "'Instrument Sans', 'SF Pro Display', -apple-system, sans-serif" }}>
+    <main className="min-h-screen" style={{
+      fontFamily: "'DM Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif",
+      background: "#FAFAFA", color: "#111",
+      WebkitFontSmoothing: "antialiased"
+    }}>
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap');
+        ::selection { background: #111; color: #fff; }
+      `}</style>
 
       {/* NAV */}
-      <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-[#050a14]/80 border-b border-white/5">
-        <div className="max-w-[1200px] mx-auto px-6 h-16 flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-700 to-blue-500 flex items-center justify-center font-bold text-sm text-white">S</div>
-            <span className="text-lg font-bold tracking-tight">Scale Evo</span>
-          </div>
-          <div className="flex items-center gap-8">
-            {Object.entries(t.nav).map(([key, label]) => (
-              <a key={key} href={`#${key}`} className="text-sm font-medium text-slate-400 hover:text-slate-200 transition-colors hidden md:block">
-                {label}
-              </a>
+      <nav className="fixed top-0 left-0 right-0 z-50" style={{
+        background: "rgba(250,250,250,0.9)", backdropFilter: "blur(12px)",
+        borderBottom: "1px solid #E8E8E8"
+      }}>
+        <div className="max-w-[1120px] mx-auto px-8 h-[60px] flex items-center justify-between">
+          <span className="text-lg font-bold" style={{ letterSpacing: "-0.04em" }}>Scale Evo</span>
+          <div className="flex items-center gap-7">
+            {d.nav.map((n, i) => (
+              <a key={i} href={`#s${i}`} className="text-sm font-medium hidden md:block transition-colors"
+                style={{ color: "#666" }}
+                onMouseEnter={(e) => (e.target as HTMLElement).style.color = "#111"}
+                onMouseLeave={(e) => (e.target as HTMLElement).style.color = "#666"}>{n}</a>
             ))}
-            <button
-              onClick={() => setLang(lang === "de" ? "en" : "de")}
-              className="bg-white/5 border border-white/10 rounded-md px-3 py-1.5 text-slate-400 text-sm font-medium cursor-pointer hover:bg-white/10 transition-colors"
-            >
-              {lang === "de" ? "EN" : "DE"}
-            </button>
+            <button onClick={() => setLang(lang === "en" ? "de" : "en")} className="cursor-pointer"
+              style={{
+                background: "none", border: "1px solid #DDD", borderRadius: 4, padding: "4px 10px",
+                fontSize: 13, fontWeight: 500, color: "#666"
+              }}>{lang === "en" ? "DE" : "EN"}</button>
           </div>
         </div>
       </nav>
 
       {/* HERO */}
-      <section className="relative min-h-screen flex items-center justify-center pt-32 pb-20 px-6 overflow-hidden">
-        {/* Grid background */}
-        <div className="absolute inset-0 opacity-[0.03]" style={{
-          backgroundImage: `linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)`,
-          backgroundSize: "60px 60px"
-        }} />
-        {/* Glow dots */}
-        <div className="absolute -top-24 -left-24 w-96 h-96 rounded-full opacity-20 animate-pulse" style={{ background: "radial-gradient(circle, rgba(59,130,246,0.6) 0%, transparent 70%)" }} />
-        <div className="absolute top-[60%] left-[70%] w-72 h-72 rounded-full opacity-20 animate-pulse" style={{ background: "radial-gradient(circle, rgba(59,130,246,0.6) 0%, transparent 70%)", animationDelay: "1.5s" }} />
-
-        <div className="max-w-[800px] text-center relative z-10">
-          <div className="inline-block px-4 py-1.5 rounded-full border border-blue-500/30 bg-blue-500/[0.08] mb-8">
-            <span className="text-xs font-semibold tracking-[0.1em] text-blue-400 font-mono">{t.hero.badge}</span>
-          </div>
-          <h1 className="text-[clamp(40px,7vw,72px)] font-bold leading-[1.05] tracking-[-0.04em] mb-6">
-            {t.hero.title1}<br />
-            <span className="bg-gradient-to-r from-blue-500 via-blue-400 to-blue-300 bg-clip-text text-transparent">{t.hero.title2}</span><br />
-            {t.hero.title3}
-          </h1>
-          <p className="text-lg text-slate-400 leading-relaxed max-w-[560px] mx-auto mb-10 tracking-[-0.01em]">
-            {t.hero.subtitle}
-          </p>
-          <a href="#contact" className="inline-block bg-gradient-to-br from-blue-700 to-blue-500 text-white font-semibold text-[17px] px-10 py-[18px] rounded-lg hover:-translate-y-0.5 hover:shadow-[0_8px_30px_rgba(37,99,235,0.4)] transition-all">
-            {t.hero.cta}
-          </a>
-          <p className="text-[13px] text-slate-500 mt-3">{t.hero.ctaSub}</p>
+      <section className="pt-40 pb-28 px-8 max-w-[1120px] mx-auto">
+        <p className="text-sm font-medium uppercase mb-5" style={{ color: "#888", letterSpacing: "0.04em" }}>{d.hero.pre}</p>
+        <h1 className="font-bold mb-6" style={{
+          fontSize: "clamp(40px, 6vw, 68px)", lineHeight: 1.05,
+          letterSpacing: "-0.04em", maxWidth: 700
+        }}>
+          {d.hero.h1_1}<br />{d.hero.h1_2}
+        </h1>
+        <p className="text-lg mb-9" style={{ color: "#555", lineHeight: 1.65, maxWidth: 520 }}>{d.hero.sub}</p>
+        <div className="flex gap-3">
+          <a href="#s0" className="inline-block px-7 py-3.5 rounded-md text-sm font-semibold transition-colors"
+            style={{ background: "#111", color: "#fff", letterSpacing: "-0.01em" }}>{d.hero.cta}</a>
+          <a href="#s4" className="inline-block px-7 py-3.5 rounded-md text-sm font-semibold transition-all"
+            style={{ background: "transparent", color: "#111", border: "1.5px solid #DDD", letterSpacing: "-0.01em" }}>{d.hero.cta2}</a>
         </div>
       </section>
 
-      {/* SERVICES */}
-      <section id="services" data-animate className="py-28 px-6">
-        <div className="max-w-[1200px] mx-auto" style={sectionStyle("services")}>
-          <div className="text-center mb-16">
-            <h2 className="text-[clamp(32px,4vw,48px)] font-bold tracking-[-0.03em] mb-4">{t.services.title}</h2>
-            <p className="text-lg text-slate-500">{t.services.subtitle}</p>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {t.services.items.map((item, i) => (
-              <div key={i} className="bg-white/[0.02] border border-white/[0.06] rounded-2xl p-8 hover:shadow-[0_0_40px_rgba(59,130,246,0.15)] hover:border-blue-500/30 transition-all">
-                <div className="text-[28px] mb-4 w-12 h-12 rounded-xl bg-blue-500/10 flex items-center justify-center text-blue-500">{item.icon}</div>
-                <h3 className="text-xl font-semibold mb-3 tracking-[-0.02em]">{item.title}</h3>
-                <p className="text-[15px] text-slate-400 leading-relaxed mb-4">{item.desc}</p>
-                <span className="text-[13px] font-medium text-blue-500 font-mono">{item.time}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* PROCESS */}
-      <section id="process" data-animate className="py-28 px-6">
-        <div className="max-w-[900px] mx-auto" style={sectionStyle("process")}>
-          <div className="text-center mb-16">
-            <h2 className="text-[clamp(32px,4vw,48px)] font-bold tracking-[-0.03em] mb-4">{t.process.title}</h2>
-            <p className="text-lg text-slate-500">{t.process.subtitle}</p>
-          </div>
-          {t.process.steps.map((step, i) => (
-            <div key={i} className="flex gap-8 mb-12 last:mb-0 items-start" style={{
-              opacity: isVisible("process") ? 1 : 0,
-              transform: isVisible("process") ? "translateX(0)" : "translateX(-30px)",
-              transition: `all 0.6s ease ${i * 0.15}s`
-            }}>
-              <div className="text-5xl font-bold text-blue-500/15 font-mono min-w-[80px] leading-none">{step.num}</div>
-              <div className="border-l border-white/[0.08] pl-8 pb-12 last:pb-0" style={{ borderImage: i < 3 ? "linear-gradient(to bottom, rgba(59,130,246,0.3), transparent) 1" : "none" }}>
-                <h3 className="text-[22px] font-semibold mb-2 tracking-[-0.02em]">{step.title}</h3>
-                <p className="text-base text-slate-400 leading-relaxed">{step.desc}</p>
+      {/* PORTFOLIO */}
+      <section id="s0" data-a className="px-8 pb-20 max-w-[1120px] mx-auto" style={anim("s0")}>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {d.portfolio.items.map((item, i) => (
+            <div key={i} className="rounded-xl overflow-hidden cursor-pointer transition-transform hover:scale-[1.01]"
+              style={{
+                background: portfolioBgs[i], aspectRatio: "16/9",
+                display: "flex", flexDirection: "column", justifyContent: "flex-end", position: "relative"
+              }}>
+              {/* Portfolio thumbnail placeholder — will be replaced with generated images */}
+              <div className="p-6" style={{ background: "linear-gradient(transparent, rgba(0,0,0,0.7))" }}>
+                <p className="text-lg font-semibold text-white mb-1">{item.label}</p>
+                <p className="text-sm" style={{ color: "rgba(255,255,255,0.6)" }}>{item.cat}</p>
               </div>
             </div>
           ))}
         </div>
       </section>
 
-      {/* PORTFOLIO */}
-      <section id="portfolio" data-animate className="py-28 px-6">
-        <div className="max-w-[1200px] mx-auto" style={sectionStyle("portfolio")}>
-          <div className="text-center mb-16">
-            <h2 className="text-[clamp(32px,4vw,48px)] font-bold tracking-[-0.03em] mb-4">{t.portfolio.title}</h2>
-            <p className="text-lg text-slate-500">{t.portfolio.subtitle}</p>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[
-              { title: "CloudSync Pro", sub: "SaaS · LinkedIn", dur: "48 Sek.", img: "/images/portfolio-cloudsync.jpg" },
-              { title: "StrategyPeak Consulting", sub: "Beratung · LinkedIn", dur: "48 Sek.", img: "/images/portfolio-strategypeak.jpg" },
-              { title: "PräzisionsTech GmbH", sub: "Industrie · Instagram Reel", dur: "30 Sek.", img: "/images/portfolio-praezisionstech.jpg" }
-            ].map((item, i) => (
-              <div key={i} className="bg-white/[0.02] border border-white/[0.06] rounded-2xl overflow-hidden hover:shadow-[0_0_40px_rgba(59,130,246,0.15)] hover:border-blue-500/30 transition-all group">
-                <div className="h-[200px] relative overflow-hidden">
-                  <img src={item.img} alt={item.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                  <div className="absolute inset-0 bg-black/30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                    <div className="w-16 h-16 rounded-full border-2 border-white/40 flex items-center justify-center text-2xl text-white cursor-pointer bg-black/40">▶</div>
-                  </div>
-                </div>
-                <div className="p-6">
-                  <h3 className="text-[17px] font-semibold mb-1">{item.title}</h3>
-                  <p className="text-[13px] text-slate-500">{item.sub} · {item.dur} · 2026</p>
-                </div>
+      {/* SERVICES */}
+      <section id="s1" data-a className="py-24 px-8 max-w-[1120px] mx-auto">
+        <h2 className="text-4xl font-bold mb-12" style={{ letterSpacing: "-0.03em", ...anim("s1") }}>{d.services.title}</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {d.services.items.map((s, i) => (
+            <div key={i} className="rounded-xl p-8 transition-colors" style={{
+              background: "#fff", border: "1px solid #E8E8E8",
+              ...anim("s1", i * 0.1)
+            }}>
+              <div className="flex justify-between items-baseline mb-3">
+                <h3 className="text-lg font-semibold">{s.title}</h3>
+                <span className="text-sm font-medium" style={{ color: "#999" }}>{s.time}</span>
               </div>
-            ))}
-          </div>
-          <p className="text-center mt-10 text-blue-500 text-base font-medium cursor-pointer hover:text-blue-400 transition-colors">{t.portfolio.cta}</p>
+              <p className="text-sm leading-relaxed" style={{ color: "#666" }}>{s.desc}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* PROCESS */}
+      <section id="s2" data-a className="py-24 px-8 max-w-[1120px] mx-auto">
+        <h2 className="text-4xl font-bold mb-12" style={{ letterSpacing: "-0.03em", ...anim("s2") }}>{d.process.title}</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {d.process.steps.map((s, i) => (
+            <div key={i} style={anim("s2", i * 0.1)}>
+              <span className="text-5xl font-bold block mb-3" style={{ color: "#E0E0E0", lineHeight: 1 }}>{s.n}</span>
+              <h3 className="text-lg font-semibold mb-2">{s.t}</h3>
+              <p className="text-sm leading-relaxed" style={{ color: "#666" }}>{s.d}</p>
+            </div>
+          ))}
         </div>
       </section>
 
       {/* PRICING */}
-      <section id="pricing" data-animate className="py-28 px-6">
-        <div className="max-w-[1100px] mx-auto" style={sectionStyle("pricing")}>
-          <div className="text-center mb-16">
-            <h2 className="text-[clamp(32px,4vw,48px)] font-bold tracking-[-0.03em] mb-4">{t.pricing.title}</h2>
-            <p className="text-lg text-slate-500">{t.pricing.subtitle}</p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
-            {t.pricing.plans.map((plan, i) => (
-              <div key={i} className={`rounded-2xl p-9 flex flex-col relative transition-all ${
-                plan.highlighted
-                  ? "border border-blue-500/50 bg-gradient-to-b from-blue-500/[0.08] to-[#050a14]"
-                  : "bg-white/[0.02] border border-white/[0.06] hover:shadow-[0_0_40px_rgba(59,130,246,0.15)] hover:border-blue-500/30"
-              }`}>
-                {plan.highlighted && (
-                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-gradient-to-r from-blue-700 to-blue-500 text-xs font-semibold tracking-[0.05em]">
-                    POPULAR
-                  </div>
-                )}
-                <h3 className="text-xl font-semibold mb-4">{plan.name}</h3>
-                <div className="mb-6">
-                  <span className="text-5xl font-bold tracking-[-0.04em]">€{plan.price}</span>
-                  <span className="text-base text-slate-500">{plan.period}</span>
-                </div>
-                <div className="flex-1">
-                  {plan.features.map((f, j) => (
-                    <div key={j} className="flex items-center gap-2.5 mb-3 text-[15px] text-slate-400">
-                      <span className="text-blue-500 text-sm">✓</span> {f}
-                    </div>
-                  ))}
-                </div>
-                <a href="#contact" className={`block text-center mt-6 py-4 rounded-lg font-semibold transition-all hover:-translate-y-0.5 ${
-                  plan.highlighted
-                    ? "bg-gradient-to-r from-blue-700 to-blue-500 text-white hover:shadow-[0_8px_30px_rgba(37,99,235,0.4)]"
-                    : "border border-white/15 text-[#e2e8f0] hover:border-white/30"
-                }`}>
-                  {plan.cta}
-                </a>
+      <section id="s3" data-a className="py-24 px-8 max-w-[1120px] mx-auto">
+        <h2 className="text-4xl font-bold mb-2" style={{ letterSpacing: "-0.03em", ...anim("s3") }}>{d.pricing.title}</h2>
+        <p className="text-base mb-12" style={{ color: "#888", ...anim("s3", 0.1) }}>{d.pricing.sub}</p>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 items-start">
+          {d.pricing.plans.map((p, i) => (
+            <div key={i} className="rounded-xl p-8 relative" style={{
+              background: "#fff",
+              border: p.pop ? "2px solid #111" : "1px solid #E8E8E8",
+              ...anim("s3", i * 0.1)
+            }}>
+              {p.pop && (
+                <div className="absolute -top-2.5 left-6 px-3 py-0.5 rounded text-white text-xs font-semibold"
+                  style={{ background: "#111", letterSpacing: "0.05em" }}>POPULAR</div>
+              )}
+              <h3 className="text-xl font-semibold mb-1">{p.name}</h3>
+              <div className="mb-5">
+                <span className="text-4xl font-bold" style={{ letterSpacing: "-0.03em" }}>€{p.price}</span>
+                <span className="text-sm ml-1" style={{ color: "#888" }}>{p.per}</span>
               </div>
-            ))}
-          </div>
+              {p.feat.map((f, j) => (
+                <div key={j} className="flex items-center gap-2 mb-2.5 text-sm" style={{ color: "#555" }}>
+                  <span style={{ color: "#111", fontSize: 12 }}>✓</span>{f}
+                </div>
+              ))}
+              <button className="w-full mt-5 py-3.5 rounded-md text-sm font-semibold transition-colors cursor-pointer" style={{
+                background: p.pop ? "#111" : "transparent",
+                color: p.pop ? "#fff" : "#111",
+                border: p.pop ? "none" : "1.5px solid #DDD"
+              }}>{p.cta}</button>
+            </div>
+          ))}
         </div>
       </section>
 
       {/* CTA */}
-      <section id="contact" data-animate className="py-28 px-6">
-        <div className="max-w-[700px] mx-auto text-center" style={sectionStyle("contact")}>
-          <h2 className="text-[clamp(32px,4vw,48px)] font-bold tracking-[-0.03em] mb-4">{t.cta.title}</h2>
-          <p className="text-lg text-slate-400 leading-relaxed mb-10">{t.cta.subtitle}</p>
-          <a href={`mailto:${t.cta.email}?subject=Sample Video Anfrage`} className="inline-block bg-gradient-to-br from-blue-700 to-blue-500 text-white font-semibold text-lg px-12 py-5 rounded-lg hover:-translate-y-0.5 hover:shadow-[0_8px_30px_rgba(37,99,235,0.4)] transition-all">
-            {t.cta.button}
-          </a>
-          <p className="mt-6 text-slate-500 text-[15px]">{t.cta.email}</p>
+      <section id="s4" data-a className="py-24 px-8 max-w-[700px] mx-auto text-center">
+        <div style={anim("s4")}>
+          <h2 className="font-bold mb-4" style={{ fontSize: "clamp(28px, 4vw, 40px)", letterSpacing: "-0.03em" }}>{d.cta.title}</h2>
+          <p className="text-base leading-relaxed mb-8" style={{ color: "#555" }}>{d.cta.sub}</p>
+          <a href={`mailto:${d.cta.email}?subject=Free Sample Request`}
+            className="inline-block px-9 py-4 rounded-md text-base font-semibold transition-colors"
+            style={{ background: "#111", color: "#fff" }}>{d.cta.btn}</a>
+          <p className="mt-4 text-sm" style={{ color: "#999" }}>{d.cta.email}</p>
         </div>
       </section>
 
       {/* FOOTER */}
-      <footer className="border-t border-white/5 py-12 px-6">
-        <div className="max-w-[1200px] mx-auto flex flex-wrap justify-between items-center gap-6">
+      <footer style={{ borderTop: "1px solid #E8E8E8", padding: "40px 32px" }}>
+        <div className="max-w-[1120px] mx-auto flex flex-wrap justify-between items-center gap-4">
           <div>
-            <div className="flex items-center gap-2 mb-2">
-              <div className="w-6 h-6 rounded-md bg-gradient-to-br from-blue-700 to-blue-500 flex items-center justify-center font-bold text-[11px] text-white">S</div>
-              <span className="text-[15px] font-semibold">{t.footer.company}</span>
-            </div>
-            <p className="text-[13px] text-slate-600">{t.footer.tagline}</p>
+            <span className="text-sm font-bold" style={{ letterSpacing: "-0.03em" }}>Scale Evo</span>
+            <span className="text-sm ml-3" style={{ color: "#999" }}>{d.footer.tag}</span>
           </div>
-          <div className="flex gap-6">
-            {t.footer.links.map((link, i) => (
-              <a key={i} href="#" className="text-slate-500 text-[13px] hover:text-slate-300 transition-colors">{link}</a>
+          <div className="flex gap-5 items-center">
+            {d.footer.links.map((l, i) => (
+              <a key={i} href="#" className="text-sm transition-colors" style={{ color: "#999" }}>{l}</a>
             ))}
           </div>
-          <p className="text-xs text-slate-700 w-full text-center mt-4">{t.footer.copyright}</p>
+          <p className="text-xs w-full text-center mt-3" style={{ color: "#BBB" }}>{d.footer.copy}</p>
         </div>
       </footer>
     </main>
