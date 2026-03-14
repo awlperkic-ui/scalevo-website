@@ -2,97 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 255, 255, 255;
-  --background-start: #0a0a0a;
-  --background-end: #0d0d1a;
-}
-
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(180deg, var(--background-start), var(--background-end));
-  font-family: 'Inter', system-ui, sans-serif;
-}
-
-@layer utilities {
-  .gradient-text {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-cyan-400;
-  }
-  .glass {
-    @apply bg-white/5 backdrop-blur-sm border border-white/10;
-  }
+  background: #050a14;
+  color: #e2e8f0;
+  font-family: 'Instrument Sans', 'SF Pro Display', -apple-system, sans-serif;
 }
 
 html {
   scroll-behavior: smooth;
 }
 
-/* Hero animated mesh gradient */
-@keyframes hero-gradient {
-  0%, 100% {
-    background-position: 0% 50%;
-  }
-  25% {
-    background-position: 100% 0%;
-  }
-  50% {
-    background-position: 100% 100%;
-  }
-  75% {
-    background-position: 0% 100%;
-  }
-}
-
-.hero-mesh {
-  background: linear-gradient(
-    -45deg,
-    rgba(59, 130, 246, 0.15),
-    rgba(6, 182, 212, 0.1),
-    rgba(59, 130, 246, 0.05),
-    rgba(139, 92, 246, 0.1),
-    rgba(6, 182, 212, 0.15)
-  );
-  background-size: 400% 400%;
-  animation: hero-gradient 15s ease infinite;
-}
-
-/* Floating particles effect for hero */
-@keyframes float-up {
-  0% {
-    transform: translateY(100vh) scale(0);
-    opacity: 0;
-  }
-  10% {
-    opacity: 0.6;
-  }
-  90% {
-    opacity: 0.3;
-  }
-  100% {
-    transform: translateY(-20vh) scale(1);
-    opacity: 0;
-  }
-}
-
-.particle {
-  position: absolute;
-  width: 4px;
-  height: 4px;
-  background: rgba(59, 130, 246, 0.4);
-  border-radius: 50%;
-  animation: float-up linear infinite;
-}
-
-/* Showreel placeholder animation */
-@keyframes pulse-border {
-  0%, 100% {
-    border-color: rgba(59, 130, 246, 0.3);
-  }
-  50% {
-    border-color: rgba(59, 130, 246, 0.6);
-  }
-}
-
-.showreel-placeholder {
-  animation: pulse-border 3s ease-in-out infinite;
+::selection {
+  background: rgba(59, 130, 246, 0.3);
 }
